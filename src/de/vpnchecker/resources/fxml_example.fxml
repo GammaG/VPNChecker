@@ -32,44 +32,58 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
 
-<GridPane fx:controller="de.vpnchecker.controller.FXMLController"
-    xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" 
-    styleClass="root">
-  <padding><Insets top="25" right="25" bottom="10" left="25" /></padding>
+<GridPane alignment="center" hgap="10" prefHeight="329.0" prefWidth="408.0" styleClass="root" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="de.vpnchecker.controller.FXMLController">
+  <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
   
-  <Text id="welcome-text" text="Welcome" 
-      GridPane.columnIndex="0" GridPane.rowIndex="0" 
-      GridPane.columnSpan="2"/>
+  <Text id="welcome-text" text="VPNChecker" GridPane.columnSpan="2" GridPane.rowIndex="1" />
   
-  <Label text="User Name:" 
-      GridPane.columnIndex="0" GridPane.rowIndex="1" />
+  <Label text="Path in Filesystem" GridPane.rowIndex="2" />
   
-  <TextField 
-      GridPane.columnIndex="1" GridPane.rowIndex="1" />
+  <TextField id="filepath" GridPane.columnIndex="1" GridPane.rowIndex="2" />
   
-  <Label text="Password:" 
-      GridPane.columnIndex="0" GridPane.rowIndex="2" />
+  <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5" />
   
-  <PasswordField fx:id="passwordField" 
-      GridPane.columnIndex="1" GridPane.rowIndex="2" />
-  
-  <HBox spacing="10" alignment="bottom_right" 
-      GridPane.columnIndex="1" GridPane.rowIndex="4">
-      <Button text="Sign In" 
-       onAction="#handleSubmitButtonAction" />
-  </HBox>
-  
-  <Text fx:id="actiontarget" 
-      GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+  <Text fx:id="actiontarget" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+   <Button id="startButton" onAction="#handleSubmitButtonAction" text="Start" GridPane.rowIndex="9" />
+ <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6">
+      <children>
+         <ScrollPane id="resultPane" layoutX="5.0" layoutY="-22.0" prefHeight="140.0" prefWidth="333.0" />
+      </children>
+   </AnchorPane>
   
   <stylesheets>
     <URL value="@Login.css" />
   </stylesheets>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="185.0" minWidth="95.0" prefWidth="119.0" />
+      <ColumnConstraints maxWidth="234.0" minWidth="144.0" prefWidth="210.0" />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
   
 </GridPane>
