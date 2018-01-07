@@ -31,16 +31,41 @@
  */
 
 package de.vpnchecker.controller;
- 
+
+import de.vpnchecker.files.FileLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
- 
+import javafx.stage.Stage;
+
 public class FXMLController {
-    @FXML private Text actiontarget;
-    
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
-        actiontarget.setText("Sign in button pressed");
+    @FXML
+    private Text resultText;
+    private ScrollPane resultPane;
+    private TextField pathInFilesystem;
+    private String path;
+    private Scene root;
+
+
+    @FXML
+    protected void handleSubmitButtonAction(ActionEvent event) {
+        resultText.setText("Scan Done");
+    }
+
+
+    public void setStageAndSetupListeners(Stage stage) {
+        this.root = stage.getScene();
+
+    }
+
+    @FXML
+    public void handleLoadButtonAction(ActionEvent actionEvent) {
+        path = new FileLoader().readPathFromFile();
+        pathInFilesystem = (TextField) root.lookup("#filepath");
+        pathInFilesystem.setText(path);
     }
 
 }

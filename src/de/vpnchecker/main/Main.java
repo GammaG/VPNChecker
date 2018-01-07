@@ -32,6 +32,7 @@
 
 package de.vpnchecker.main;
 
+import de.vpnchecker.controller.FXMLController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,11 +43,16 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml_example.fxml"));
-        
-        stage.setTitle("FXML Welcome");
-        stage.setScene(new Scene(root, 300, 275));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/fxml_example.fxml"));
+        Parent root = (Parent) loader.load();
+        FXMLController controller = (FXMLController) loader.getController();
+        stage.setTitle("VPNChecker");
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
+        controller.setStageAndSetupListeners(stage);
+
     }
     
     public static void main(String[] args) {
